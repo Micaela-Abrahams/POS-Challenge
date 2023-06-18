@@ -13,6 +13,7 @@
     background-color: gray;
 }
 
+
 .till__display {
     margin: 2rem 25vw;
     text-align: center;
@@ -40,6 +41,7 @@
 button {
     padding: 0.5rem;
 }
+
 button:hover {
     cursor: pointer;
 }

@@ -5,7 +5,6 @@ function getItemPrice($itemName)
     // Include the $items array from data.php
     include 'data/data.php'; // Data from the data.php page is included on the index.php page
 
-
     // Search for the item name in the array & return the price of the item
     foreach ($items as $item) {
         if ($item['name'] == $itemName) {
