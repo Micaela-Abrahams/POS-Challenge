@@ -53,8 +53,6 @@ if (isset($_GET['payment'])) {
     header("Location: ./../");
 }
 
-
-
 ?>
 
 <!DOCTYPE html>
@@ -69,27 +67,45 @@ if (isset($_GET['payment'])) {
 </head>
 
 <body>
-    <h1>
-        <span style="color:red">Click</span> & <span style="color:blue">Buy</span>
+    <h1 id="titleName">
+        <span style="color:#008E9B">Click</span> <span style="color:#B6EA7C">& </span><span style="color:#FF8C40">Buy</span>
     </h1>
+
+    <!-- Back Button that will redirect user to index.php page -->
+    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="get">
+        <button style="background-color:red" type="submit" name="payment">Back</button>
+
+    </form>
 
     <hr>
 
     <!-- Display items from Table in index.php -->
     <h2>Items Purchased:</h2>
-    <?php echo $tableData; ?>
+    <table class="table_2">
+        <tbody>
+            <?php echo $tableData; ?>
+        </tbody>
+    </table>
+
+
+
 
     <hr>
 
+    <!-- Total Costs Displayed -->
     <h2>
+        <!-- Total amount of Items displayed -->
         Amount: R<span><?php echo number_format($totalAmount, 2); ?></span>
         <br>
+        <!-- VAT amount displayed -->
         VAT Amount: R <span><?php echo number_format($vatAmount, 2); ?></span>
         <br>
         <br>
+        <!-- Total cost of Items + VAT Displayed -->
         Subtotal for all items: R<span><?php echo number_format($totalAmount + $vatAmount, 2); ?></span>
     </h2>
 
+    <!-- Buttons for user to select Cash/Card Payment -->
     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="get">
         <button style="background-color:red" type="submit" name="payment">Pay with card</button>
         <button style="background-color:cornflowerblue" type="submit" name="payment">Pay with cash</button>

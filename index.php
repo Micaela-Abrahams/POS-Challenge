@@ -140,10 +140,11 @@ $_SESSION['tableData'] = $tableData;
 </head>
 
 <body>
-    <h1>
-        <span style="color:red">Click</span> & <span style="color:blue">Buy</span>
+    <h1 id="titleName">
+        <span style="color:#008E9B">Click</span> <span style="color:#B6EA7C">& </span><span style="color:#FF8C40">Buy</span>
     </h1>
 
+    <hr>
     <!-- Menu Items to be displayed -->
     <section>
         <form class="items" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="get">
@@ -167,8 +168,10 @@ $_SESSION['tableData'] = $tableData;
         </form>
     </section>
 
+    <hr>
+
     <!-- Table to display selected items -->
-    <table>
+    <table class="table">
         <thead>
             <tr>
                 <th>Name</th>
@@ -239,8 +242,6 @@ $_SESSION['tableData'] = $tableData;
             ?>
         </tbody>
     </table>
-
-    <hr>
 
     <!--Till Display -->
     <div class="till__display">
