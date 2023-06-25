@@ -45,3 +45,8 @@ button {
 button:hover {
     cursor: pointer;
 }
+
+.error-message {
+    color: red;
+    font-weight: bold;
+}

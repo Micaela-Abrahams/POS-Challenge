@@ -254,13 +254,17 @@ $_SESSION['tableData'] = $tableData;
     <hr>
 
     <!-- Payment Button -->
-    <form action="./views/payments.php" method="get" class="checkout">
+    <form action=" ./views/payments.php" method="get" class="checkout">
         <input type="hidden" name="subTotal" value="sub total amount">
-        <!-- When payment button is selected user will be directed to payments.php page -->
-        <button type="submit">
-            Confirm Order
-        </button>
+        <?php if (empty($_SESSION['order'])) : ?>
+            <p class="error-message">Please select items before confirming the order.</p>
+        <?php else : ?>
+            <button type="submit">
+                Confirm Order
+            </button>
+        <?php endif; ?>
     </form>
+
 
 
 </body>
