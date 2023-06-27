@@ -42,6 +42,11 @@ session_start();
         }
         ?>
     </h1>
+
+    <!-- Back Button that will redirect user to index.php page -->
+    <form action="./../index.php" method="get">
+        <button id="homeBTN" type="submit" name="Home">Home</button>
+    </form>
 </body>
 
 </html>
