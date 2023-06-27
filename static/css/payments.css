@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Ysabeau+SC:wght@100;300;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;0,500;0,600;1,600&display=swap');
+
+h2 {
+    font-family: 'Rubik', sans-serif;
+    font-weight: 200;
+}
+
+#totalAmount {
+    font-family: 'Rubik', sans-serif;
+    font-weight: 200;
+}
+
+.card {
+    font-family: 'Rubik', sans-serif;
+    background-color: rgb(132, 196, 35);
+}
+
+.cash {
+    font-family: 'Rubik', sans-serif;
+    background-color: #d46f2c;
+}

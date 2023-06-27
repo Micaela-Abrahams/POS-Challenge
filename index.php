@@ -120,12 +120,7 @@ if (!empty($_SESSION['order'])) {
     }
 }
 
-$tableData .= '
-  </tbody>
-</table>';
 
-// Store the table data in a session variable
-$_SESSION['tableData'] = $tableData;
 ?>
 
 <!DOCTYPE html>

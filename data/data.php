@@ -42,7 +42,7 @@ $items = [
         "barcode" => 31204
     ],
     [
-        "name" => "Philips Air Fryer",
+        "name" => "Phillips Air Fryer",
         "price" => 90,
         "barcode" => 13204
     ]

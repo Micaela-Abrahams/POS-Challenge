@@ -54,10 +54,6 @@
       background-color: #cacaca;
   }
 
-  .table_2 {
-      border-collapse: collapse;
-      width: 100%;
-  }
 
   .checkout {
       display: flex;

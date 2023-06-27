@@ -1,0 +1,15 @@
+#titleName {
+    font-family: 'Ysabeau SC', sans-serif;
+    font-size: 45px;
+    text-align: center;
+}
+
+#confirmationTitle {
+    text-align: center;
+    margin-top: 200px;
+    font-size: 45px;
+    font-family: 'Ysabeau SC', sans-serif;
+    color: white;
+    background-color: #008E9B;
+
+}

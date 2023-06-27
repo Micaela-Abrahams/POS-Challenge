@@ -64,6 +64,7 @@ if (isset($_GET['payment'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>S&S POS | Pay</title>
     <link rel="stylesheet" href="./../static/css/style.css">
+    <link rel="stylesheet" href="./../static/css/payments.css">
 </head>
 
 <body>
@@ -73,7 +74,7 @@ if (isset($_GET['payment'])) {
 
     <!-- Back Button that will redirect user to index.php page -->
     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="get">
-        <button style="background-color:red" type="submit" name="payment">Back</button>
+        <button style="background-color:#008E9B" type="submit" name="payment">Back</button>
 
     </form>
 
@@ -81,19 +82,58 @@ if (isset($_GET['payment'])) {
 
     <!-- Display items from Table in index.php -->
     <h2>Items Purchased:</h2>
-    <table class="table_2">
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Barcode</th>
+
+            </tr>
+        </thead>
         <tbody>
-            <?php echo $tableData; ?>
+            <?php
+            // Check if there are any selected items in the session
+            if (!empty($_SESSION['order'])) {
+                // Iterate over the selected items and display them in the table
+                foreach ($_SESSION['order'] as $selectedItem) {
+                    $menuItem = null;
+
+                    // Find the selected item in the $items array
+                    foreach ($items as $item) {
+                        if ($item['name'] == $selectedItem) {
+                            $menuItem = $item;
+                            break;
+                        }
+                    }
+
+                    // Display the item in the table row
+                    if ($menuItem !== null) {
+                        echo '<tr>';
+                        echo '<td>' . $menuItem['name'] . '</td>';
+                        echo '<td>' . "R" . $menuItem['price'] . ".00" . '</td>';
+                        echo '<td>' . $menuItem['barcode'] . '</td>';
+                        echo '<td>';
+                        echo '<form action="' . $_SERVER['PHP_SELF'] . '" method="post">';
+                        echo '<input type="hidden" name="removeItemValue" value="' . $menuItem['name'] . '">';
+
+                        echo '</form>';
+                        echo '</td>';
+                        echo '</tr>';
+                    }
+                }
+            }
+
+
+            ?>
         </tbody>
     </table>
-
-
-
 
     <hr>
 
     <!-- Total Costs Displayed -->
-    <h2>
+    <h2 id="totalAmount">
         <!-- Total amount of Items displayed -->
         Amount: R<span><?php echo number_format($totalAmount, 2); ?></span>
         <br>
@@ -102,13 +142,13 @@ if (isset($_GET['payment'])) {
         <br>
         <br>
         <!-- Total cost of Items + VAT Displayed -->
-        Subtotal for all items: R<span><?php echo number_format($totalAmount + $vatAmount, 2); ?></span>
+        <b>Subtotal for all items: R<span><?php echo number_format($totalAmount + $vatAmount, 2); ?></span></b>
     </h2>
 
     <!-- Buttons for user to select Cash/Card Payment -->
-    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="get">
-        <button style="background-color:red" type="submit" name="payment">Pay with card</button>
-        <button style="background-color:cornflowerblue" type="submit" name="payment">Pay with cash</button>
+    <form action="./../views/confirmation.php" method="get">
+        <button type="submit" name="payment" value="card" class="card">Pay with card</button>
+        <button type="submit" name="payment" value="cash" class="cash">Pay with cash</button>
     </form>
 
 </body>
