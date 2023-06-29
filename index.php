@@ -11,20 +11,19 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-// 1. Create a session variable called "order" as an empty array
+// The below code is used checks if the "order" variable has been set & will result in an empty array to store the product items
 if (!isset($_SESSION['order'])) {
     $_SESSION['order'] = array();
 }
 
-// 2. Create a session variable called "orderTotal" if it is not set or if the "order" session variable is empty
+// The below code checks if a a variable called "orderTotal" is not set OR if the "order" variable is empty
 if (!isset($_SESSION['orderTotal']) || empty($_SESSION['order'])) {
-    $_SESSION['orderTotal'] = "0.00";
+    $_SESSION['orderTotal'] = "0.00"; // If the "orderTotal" variable is not set - the amount of "0.00" will be displayed.
 } elseif (empty($_SESSION['order'])) {
-    // If the "order" session variable is empty, reset the "orderTotal" to 0
-    $_SESSION['orderTotal'] = "0.00";
+    $_SESSION['orderTotal'] = "0.00"; // Else, if the "order" variable is empty - the "orderTotal" will be reset to 0
 }
 
-// // Handle item selection
+// The following code handles the item selection
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     if (isset($_GET['selectedItemValue'])) {
         $selectedItem = $_GET['selectedItemValue'];
@@ -131,10 +130,12 @@ if (!empty($_SESSION['order'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>POS System</title>
+    <!-- Link for the CSS Stylesheet -->
     <link rel="stylesheet" href="./static/css/style.css">
 </head>
 
 <body>
+    <!-- Heading Title -->
     <h1 id="titleName">
         <span style="color:#008E9B">Click</span> <span style="color:#B6EA7C">& </span><span style="color:#FF8C40">Buy</span>
     </h1>
@@ -145,8 +146,8 @@ if (!empty($_SESSION['order'])) {
         <form class="items" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="get">
 
             <?php
-            // The for loop iterates over each item in the $items array (data.php file).
-            // the items details gets extracted  using the key/value pair & then gets echoes out in the buttons
+            // The for loop iterates over each item in the $items array data.php file.
+            // The items details gets extracted using the key/value pair & then gets echoed out.
             foreach ($items as $item) {
                 $itemName = $item['name'];
                 $itemPrice = $item['price'];
@@ -191,7 +192,7 @@ if (!empty($_SESSION['order'])) {
                         }
                     }
 
-                    // Display the item in the table row
+                    // Display the items in the table row
                     if ($menuItem !== null) {
                         echo '<tr>';
                         echo '<td>' . $menuItem['name'] . '</td>';
@@ -208,12 +209,13 @@ if (!empty($_SESSION['order'])) {
                 }
             }
 
-            // Handle removing the item
+            // This code block will handle removing items from the table
             if (isset($_POST['removeItem'])) {
                 $removeItem = $_POST['removeItemValue'];
                 // Find the index of the selected item in the $_SESSION['order'] array
                 $index = array_search($removeItem, $_SESSION['order']);
                 // Remove the item from the $_SESSION['order'] array
+
                 if ($index !== false) {
                     unset($_SESSION['order'][$index]);
 
@@ -260,8 +262,6 @@ if (!empty($_SESSION['order'])) {
             </button>
         <?php endif; ?>
     </form>
-
-
 
 </body>
 
