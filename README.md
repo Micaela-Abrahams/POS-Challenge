@@ -2,11 +2,11 @@
 
 The purpose of the Point of Sale System is for the user to select items from the provided list & add them to the order.
 
-The Ordering System will take the user through 3 pages:
+The POS System will take the user through 3 pages:
 
-Index Page [index.php]
-Payment page [payments.php]
-Confirmation page [confirmation.php]
+1. Index Page [index.php]
+2. Payment page [payments.php]
+3. Confirmation page [confirmation.php]
 
 ### Index.php
 When the user selects an item, the items selcted will get added to a table, this table will display the item name, the cost & the barcode number.
