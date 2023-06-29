@@ -1,5 +1,4 @@
 <?
-
 // display error codes and messages
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -14,15 +13,18 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Link for the CSS Stylesheet -->
     <link rel="stylesheet" href="./../static/css/confirmation.css">
     <title>Confirmation Page</title>
 </head>
 
 <body>
+    <!-- Heading Title -->
     <h1 id="titleName">
         <span style="color:#008E9B">Click</span> <span style="color:#B6EA7C">& </span><span style="color:#FF8C40">Buy</span>
     </h1>
 
+    <!-- Confirmation Message Displayed -->
     <h1 id="confirmationTitle">
         <?php
         // Check if the payment form was submitted

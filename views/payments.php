@@ -63,11 +63,13 @@ if (isset($_GET['payment'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>S&S POS | Pay</title>
+    <!-- Links to the CSS Stylesheets -->
     <link rel="stylesheet" href="./../static/css/style.css">
     <link rel="stylesheet" href="./../static/css/payments.css">
 </head>
 
 <body>
+    <!-- Heading Title -->
     <h1 id="titleName">
         <span style="color:#008E9B">Click</span> <span style="color:#B6EA7C">& </span><span style="color:#FF8C40">Buy</span>
     </h1>
@@ -124,7 +126,6 @@ if (isset($_GET['payment'])) {
                     }
                 }
             }
-
 
             ?>
         </tbody>
