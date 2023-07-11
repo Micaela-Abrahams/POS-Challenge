@@ -136,14 +136,14 @@ if (isset($_GET['payment'])) {
     <!-- Total Costs Displayed -->
     <h2 id="totalAmount">
         <!-- Total amount of Items displayed -->
-        Amount: R<span><?php echo number_format($totalAmount, 2); ?></span>
+        Amount excluding VAT: R<span><?php echo number_format($totalAmount, 2); ?></span>
         <br>
         <!-- VAT amount displayed -->
-        VAT Amount: R <span><?php echo number_format($vatAmount, 2); ?></span>
+        VAT (15%): R <span><?php echo number_format($vatAmount, 2); ?></span>
         <br>
         <br>
         <!-- Total cost of Items + VAT Displayed -->
-        <b>Subtotal for all items: R<span><?php echo number_format($totalAmount + $vatAmount, 2); ?></span></b>
+        <b>Amount including VAT: R<span><?php echo number_format($totalAmount + $vatAmount, 2); ?></span></b>
     </h2>
 
     <!-- Buttons for user to select Cash/Card Payment -->
